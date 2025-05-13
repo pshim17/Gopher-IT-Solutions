@@ -36,5 +36,11 @@
   <%= button_to "📋 All Tickets", tickets_path,
         method: :get,
         form_class: "inline",
-        class: "bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded border border-gray-300 shadow-sm" %>
+        class: "bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded border border-gray-300 shadow-sm" %><br>
+  
+  <%= button_to "Delete Ticket", ticket_path(@ticket),
+        method: :delete,
+        form_class: "inline",
+        class: "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded shadow-md" %><br>
+
 </div>

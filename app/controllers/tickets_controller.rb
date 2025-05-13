@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:edit, :update, :show]
+  before_action :set_ticket, only: [:edit, :update, :show, :destroy]
 
   def index
     @tickets = Ticket.all
@@ -22,6 +22,11 @@ class TicketsController < ApplicationController
   end
 
   def show; end
+
+  def destroy
+    @ticket.destroy
+    redirect_to tickets_path
+  end
 
   private
 
