@@ -1,0 +1,35 @@
+<div style="
+  background: url(<%= asset_path('forest_gopher_background.png') %>) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+">
+
+  <div style="
+    background-color: rgba(255, 255, 255, 0.66);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+  ">
+    <h1 style="font-size: 2.75rem; color: #4f46e5; margin-bottom: 0.25rem;">
+      🐿️ Gopher IT Solutions
+    </h1>
+    <p style="font-style: italic; font-size: 1.1rem; color: #6b7280; margin-bottom: 1.5rem;">
+      "We dig into your problems so you don’t have to."
+    </p>
+
+    <p style="font-size: 1.1rem; color: #374151; margin-bottom: 2rem;">
+      Our elite team of forest-based IT support gophers are here to solve your tech issues with a smile, a stick of chewed bark, and a whole lot of enthusiasm. Whether your pinecone database is down or your acorn email won’t sync — just Gopher It.
+    </p>
+
+    <%= button_to "📋 View All Tickets", tickets_path,
+      method: :get,
+      form_class: "inline",
+      class: "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-6 rounded shadow-md transition" %>
+  </div>
+
+</div>

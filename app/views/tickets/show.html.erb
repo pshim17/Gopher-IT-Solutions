@@ -1,0 +1,40 @@
+<h1 class="text-2xl font-bold text-indigo-800 mb-4">
+  🎟️ <%= @ticket.title.titleize %>
+</h1>
+
+<table style="width: 100%; border-collapse: collapse;" border="1">
+  <thead style="background-color: #e0e7ff; color: #1e3a8a;">
+    <tr>
+      <th colspan="2" style="padding: 12px; text-align: left;">Ticket Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color: white;">
+      <td style="padding: 8px; width: 150px;"><strong>Status</strong></td>
+      <td style="padding: 8px;"><%= @ticket.status.humanize %></td>
+    </tr>
+    <tr style="background-color: #f9fafb;">
+      <td style="padding: 8px;"><strong>Description</strong></td>
+      <td style="padding: 8px;"><%= @ticket.description %></td>
+    </tr>
+    <tr style="background-color: white;">
+      <td style="padding: 8px;"><strong>Created</strong></td>
+      <td style="padding: 8px;">
+        <%= @ticket.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+        (<%= time_ago_in_words(@ticket.created_at) %> ago)
+      </td>
+    </tr>
+  </tbody>
+</table><br>
+
+<div class="mt-6 flex gap-4">
+  <%= button_to "✏️ Edit Ticket", edit_ticket_path(@ticket),
+        method: :get,
+        form_class: "inline",
+        class: "bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded shadow-md" %><br>
+
+  <%= button_to "📋 All Tickets", tickets_path,
+        method: :get,
+        form_class: "inline",
+        class: "bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded border border-gray-300 shadow-sm" %>
+</div>

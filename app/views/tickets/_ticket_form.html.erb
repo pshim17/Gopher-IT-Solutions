@@ -1,0 +1,40 @@
+<%= form_with model: @ticket, local: true do |f| %>
+  <table style="width: 100%; border-collapse: collapse;" border="1">
+    <thead style="background-color: #e0e7ff; color: #1e3a8a;">
+      <tr>
+        <th colspan="2" style="padding: 12px; text-align: left;">
+          📝 <%= @ticket.new_record? ? "Create New Ticket" : "Edit Ticket" %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: white;">
+        <td style="padding: 8px; width: 150px;"><strong>Title</strong></td>
+        <td style="padding: 8px;">
+          <%= f.text_field :title, style: "width: 100%; padding: 6px; border: 1px solid #ccc; box-sizing: border-box;" %>
+        </td>
+      </tr>
+      <tr style="background-color: #f9fafb;">
+        <td style="padding: 8px;"><strong>Description</strong></td>
+        <td style="padding: 8px;">
+          <%= f.text_field :description, style: "width: 100%; padding: 6px; border: 1px solid #ccc; box-sizing: border-box;" %>
+        </td>
+      </tr>
+      <tr style="background-color: white;">
+        <td style="padding: 8px;"><strong>Status</strong></td>
+        <td style="padding: 8px;">
+          <%= f.select :status,
+              Ticket.statuses.keys.map { |s| [s.humanize, s] },
+              { selected: @ticket.status },
+              style: "width: 100%; padding: 6px; border: 1px solid #ccc; box-sizing: border-box;" %>
+        </td>
+      </tr>
+      <tr style="background-color: #f9fafb;">
+        <td colspan="2" style="padding: 12px; text-align: center;">
+          <%= f.submit(@ticket.new_record? ? "🚀 Create Ticket" : "💾 Update Ticket",
+              style: "padding: 8px 16px; background-color: #4f46e5; color: white; font-weight: bold; border: none; border-radius: 4px;") %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
